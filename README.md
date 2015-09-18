@@ -7,6 +7,19 @@ Rappel d'utilisation:
   - ouvrir un cmd (ou terminal) dans le dossier ou vous souhaitez cloner le repo
   - dans le shell taper 'git clone ' + collez le liens
   - pressez 'enter'
+  - si tout se passe bien, vous devriez voir le chemin suivant: 'lettre du lecteur':\Chemin\Vers\Le\Repo(master)
+  - pour commencer à travailler penser à changer de branche!!: "git checkout origin 'nom de la branche'"
+  - vous devriez voir le chemin suivant: 'lettre du lecteur':\Chemin\Vers\Le\Repo(nom de la branche)
+
+
+  Envoyer des données sur le repo:
+  - ouvrir votre cmd/terminal dans votre dossier local
+  - verifier bien que vous n'êtes pas sur master
+  - taper 'git status', s'affiche en rouge la liste des fichiers/dossier qui ont été modifier depuis le dernier pull
+  - pour chaque fichiers/dossier taper 'git add 'chemine\vers\fichier\nom-fichier''
+  - une fois fini retaper 'git status' tout devrait être vert (sinon revenez à l'étape precedente)
+  - si tout est bon vous pouvez taper 'git commit -m "message du commit (TOUJOURS EXPLIQUER LE CONTENU DU COMMIT)"'
+  - enfin faite un 'git push'
   
 
 
