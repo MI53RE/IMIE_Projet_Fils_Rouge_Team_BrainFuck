@@ -1,0 +1,65 @@
+tbf_homepage:
+    path:       /
+    defaults: { _controller: TBFBundle:Default:index }
+
+tbf_projects:
+    path:       /projects
+    defaults: { _controller: TBFBundle:Projects:index }
+
+tbf_projects_details:
+    path:       /projects/details/{id}
+    defaults: { _controller: TBFBundle:Projects:details }
+    requirements:
+             id: \d+
+
+tbf_projects_add:
+    path:       /projects/add
+    defaults: { _controller: TBFBundle:Projects:add }
+    requirements:
+             id: \d+
+
+tbf_projects_modify:
+    path:       /projects/modify/{id}
+    defaults: { _controller: TBFBundle:Projects:modify }
+    requirements:
+             id: \d+
+
+tbf_projects_remove:
+    path:       /projects/remove/{id}
+    defaults: { _controller: TBFBundle:Projects:remove }
+    requirements:
+             id: \d+
+
+tbf_result:
+    path:       /result
+    defaults: { _controller: TBFBundle:Search:result }
+
+tbf_skills_index:
+    path:     /skills
+    defaults: { _controller: TBFBundle:Skills:index }
+
+tbf_skills_add:
+    path:     /skills/add
+    defaults: { _controller: TBFBundle:Skills:add }
+
+tbf_skills_modify:
+    path:     /skills/modify/{id}
+    defaults: { _controller: TBFBundle:Skills:modify }
+    requirements:
+             id: \d+
+
+tbf_skills_remove:
+    path:     /skills/remove/{id}
+    defaults: { _controller: TBFBundle:Skills:remove }
+    requirements:
+             id: \d+
+
+tbf_users:
+    path:       /users
+    defaults: { _controller: TBFBundle:users:index }
+
+tbf_users_details:
+    path:       /users/details/{id}
+    defaults: { _controller: TBFBundle:users:details }
+    requirements:
+             id: \d+

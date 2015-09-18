@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block title %}Project{% endblock %}
+{% block body %}
+	<h2>Project!</h2>
+	<div>
+		<h3>{{ project[0].name }}</h3>
+		<h4>Members</h4>
+		<table>
+			<tr>
+				<th>Firstname</th>
+				<th>Lastname</th>
+			</tr>
+			{% for member in project[0].members %}
+			<tr><td>{{ member.firstname }}</td><td>{{ member.lastname }}</td></tr>
+			{% endfor %}
+		</table>
+		<table>
+			<tr>
+				<th>Required skill(s)</th>
+			</tr>
+			{% for skill in project[0].requiredSkills %}}
+				<tr><td>{{ skill.name }}</td></tr>
+			{% endfor %}
+		</table>
+		<div>
+			<h4>Project description</h4>
+			<p>{{ project[0].description }}<p>
+		</div>
+		one project!
+                <p>coucou!</p>
+	</div>
+{% endblock %}
