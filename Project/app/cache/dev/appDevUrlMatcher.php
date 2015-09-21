@@ -195,12 +195,12 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         if (0 === strpos($pathinfo, '/users')) {
             // tbf_users
             if ($pathinfo === '/users') {
-                return array (  '_controller' => 'TBFBundle:users:index',  '_route' => 'tbf_users',);
+                return array (  '_controller' => 'TBFBundle\\Controller\\usersController::indexAction',  '_route' => 'tbf_users',);
             }
 
             // tbf_users_details
             if (0 === strpos($pathinfo, '/users/details') && preg_match('#^/users/details/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tbf_users_details')), array (  '_controller' => 'TBFBundle:users:details',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tbf_users_details')), array (  '_controller' => 'TBFBundle\\Controller\\usersController::detailsAction',));
             }
 
         }
