@@ -136,6 +136,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'TBFBundle\\Controller\\DefaultController::indexAction',  '_route' => 'tbf_homepage',);
         }
 
+        // tbf_connexion
+        if ($pathinfo === '/connexion') {
+            return array (  '_controller' => 'TBFBundle\\Controller\\DefaultController::connexionAction',  '_route' => 'tbf_connexion',);
+        }
+
         if (0 === strpos($pathinfo, '/projects')) {
             // tbf_projects
             if ($pathinfo === '/projects') {
