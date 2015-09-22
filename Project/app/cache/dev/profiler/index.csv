@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 a5e37b,127.0.0.1,GET,http://127.0.0.1/projects/Project/IMIE_Projet_Fils_Rouge_Team_BrainFuck/Project/web/app_dev.php/,1442561673,,200
 c66093,127.0.0.1,GET,http://127.0.0.1/projects/Project/IMIE_Projet_Fils_Rouge_Team_BrainFuck/Project/web/app_dev.php/projects/,1442561706,5c7674,200
 5c7674,127.0.0.1,GET,http://127.0.0.1/projects/Project/IMIE_Projet_Fils_Rouge_Team_BrainFuck/Project/web/app_dev.php/projects/,1442561706,,404
@@ -69,3 +70,8 @@ b3ccb1,127.0.0.1,GET,http://127.0.0.1/projects/Project/IMIE_Projet_Fils_Rouge_Te
 c77734,127.0.0.1,GET,http://127.0.0.1/projects/Project/IMIE_Projet_Fils_Rouge_Team_BrainFuck/Project/web/app_dev.php/users,1442578944,,500
 3412d8,127.0.0.1,GET,http://127.0.0.1/projects/Project/IMIE_Projet_Fils_Rouge_Team_BrainFuck/Project/web/app_dev.php/users,1442578975,,200
 52da83,127.0.0.1,GET,http://127.0.0.1/projects/FilRouge/num2/IMIE_Projet_Fils_Rouge_Team_BrainFuck/Project/web/app_dev.php/,1442913986,,200
+=======
+81485e,127.0.0.1,GET,http://127.0.0.1/git4/IMIE_Projet_Fils_Rouge_Team_BrainFuck/Project/web/app_dev.php/,1442868835,,200
+a100a5,127.0.0.1,GET,http://127.0.0.1/git4/IMIE_Projet_Fils_Rouge_Team_BrainFuck/Project/web/app_dev.php/skills,1442868844,,200
+6cb396,127.0.0.1,GET,http://127.0.0.1/git4/IMIE_Projet_Fils_Rouge_Team_BrainFuck/Project/web/app_dev.php/result?search=ric,1442868853,,200
+>>>>>>> 8385a9366d8d76ef6e364b2a20c57bcaed5359e5

@@ -54,15 +54,16 @@ class Projects
     private $state;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Skills")
+     * @ORM\ManyToMany(targetEntity="Skills", inversedBy="projects")
      * @ORM\JoinTable(name="projects_skills", 
      *      joinColumns = {@ORM\JoinColumn(name="project_id",
      *      referencedColumnName="id")}, 
      *      inverseJoinColumns = {@ORM\JoinColumn(name="skill_id",
-     *      referencedColumnName="id", unique=true)}
+     *      referencedColumnName="id")}
      *  )
      */
     private $requiredSkills;
+    
     public function __construct(){
         $this->requiredSkills = new ArrayCollection();
     }
