@@ -2,6 +2,10 @@ tbf_homepage:
     path:       /
     defaults: { _controller: TBFBundle:Default:index }
 
+tbf_connexion:
+    path:       /connexion
+    defaults: { _controller: TBFBundle:Default:connexion }
+
 tbf_projects:
     path:       /projects
     defaults: { _controller: TBFBundle:Projects:index }
