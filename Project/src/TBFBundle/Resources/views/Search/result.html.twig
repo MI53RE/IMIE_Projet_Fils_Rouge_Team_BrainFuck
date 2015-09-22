@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+{% block title %}Result{% endblock %}
+{% block body %}
+    <h1>Résultat de la recherche</h1>
+    {% if projects %}
+    <h2>Résultat de projet(s):</h2>
+    <table>
+        <thead>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Membre(s)</th>
+            <th>Compétance(s) requise(s)</th>
+            <th>Etat</th>
+        </thead>
+        <tbody>
+            {% for project in projects %}
+                <tr>
+                    <td><a href="">{{project.name}}</a></td>
+                    <td><a href="">{{project.description}}</a></td>
+                    <td>
+                        <ul>
+                        {% for member in project.members %}
+                            <li><a href="">{{member.firstname}}</a></li>
+                        {% endfor %} 
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                        {% for requiredSkill in project.requiredSkills %}
+                            <li><a href="">{{requiredSkill.name}}</a></li>
+                        {% endfor %} 
+                        </ul>
+                    </td>
+                    <td><a href="">{{project.state}}</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <h2>Aucun résultat pour les projets</h2>
+    {% endif %}
+
+    {# ----------------------------------------------------------  #}
+
+    {% if skills %}
+    <h2>Résultat de compétence(s):</h2>
+    <table>
+        <thead>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Utilisateur(s) ayants cette(ces) compétence(s)</th>
+        </thead>
+        <tbody>
+            {% for skill in skills %}
+                <tr>
+                    <td><a href="">{{skill.name}}</a></td>
+                    <td><a href="">{{skill.description}}</a></td>
+                    <td>
+                        <ul>
+                        {% for users in skill.users %}
+                            <li><a href="">{{users.firstname}}</a></li>
+                        {% endfor %} 
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <h2>Aucun résultat pour les compétences</h2>
+    {% endif %}
+
+    {# ----------------------------------------------------------  #}
+
+    {% if users %}
+    <h2>Résultat d'utilisateur(s):</h2>
+    <table>
+        <thead>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Compétence(s)</th>
+            <th>projet(s) en cour(s)</th>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td><a href="">{{user.firstname}}</a></td>
+                    <td><a href="">{{user.lastname}}</a></td>
+                    <td>
+                        <ul>
+                        {% for skills in user.skills %}
+                            <li><a href="">{{skills.name}}</a></li>
+                        {% endfor %} 
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                        {% for projects in user.projects %}
+                            <li><a href="">{{projects.name}}</a></li>
+                        {% endfor %} 
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <h2>Aucun résultat pour les utilisateurs</h2>
+    {% endif %}
+{% endblock %}

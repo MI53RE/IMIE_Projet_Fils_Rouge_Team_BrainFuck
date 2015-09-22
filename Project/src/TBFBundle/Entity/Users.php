@@ -44,6 +44,13 @@ class Users
      *      )
      */
     private $projects;
+    
+    //vincent
+    /**
+     *
+     * @ORM\ManyToMany(targetEntity="Skills", mappedBy="users")
+     */
+    private $skills;
 
 
     /**
@@ -123,5 +130,69 @@ class Users
     public function getProjects()
     {
         return $this->projects;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->projects = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->skills = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add projects
+     *
+     * @param \TBFBundle\Entity\Projects $projects
+     * @return Users
+     */
+    public function addProject(\TBFBundle\Entity\Projects $projects)
+    {
+        $this->projects[] = $projects;
+
+        return $this;
+    }
+
+    /**
+     * Remove projects
+     *
+     * @param \TBFBundle\Entity\Projects $projects
+     */
+    public function removeProject(\TBFBundle\Entity\Projects $projects)
+    {
+        $this->projects->removeElement($projects);
+    }
+
+    /**
+     * Add skills
+     *
+     * @param \TBFBundle\Entity\Skills $skills
+     * @return Users
+     */
+    public function addSkill(\TBFBundle\Entity\Skills $skills)
+    {
+        $this->skills[] = $skills;
+
+        return $this;
+    }
+
+    /**
+     * Remove skills
+     *
+     * @param \TBFBundle\Entity\Skills $skills
+     */
+    public function removeSkill(\TBFBundle\Entity\Skills $skills)
+    {
+        $this->skills->removeElement($skills);
+    }
+
+    /**
+     * Get skills
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSkills()
+    {
+        return $this->skills;
     }
 }

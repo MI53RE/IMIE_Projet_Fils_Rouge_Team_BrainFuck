@@ -205,6 +205,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // tbf_search_result
+        if (0 === strpos($pathinfo, '/result') && preg_match('#^/result(?:/(?P<id>[^/]++))?$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'tbf_search_result')), array (  '_controller' => 'TBFFrontBundle:Search:result',  'id' => 1,));
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

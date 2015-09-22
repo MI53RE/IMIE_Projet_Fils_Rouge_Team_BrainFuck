@@ -30,4 +30,22 @@ class ProjectsRepository extends EntityRepository
 					->getQuery()
 					->getResult();
 	}
+        
+        
+        // vincent
+        public function getProjectByIds($name){
+        try {
+            $qb = $this->createQueryBuilder('p');
+            return $qb      ->leftJoin('p.members', 'usrid')
+                            ->addSelect('usrid')
+                            ->leftJoin('p.requiredSkills', 'skillid')
+                            ->addSelect('skillid')
+                            ->where($qb->expr()->like('p.name', ':name'))
+                            ->setParameter('name', '%' . $name . '%')
+                            ->getQuery()
+                            ->getResult();
+        } catch (\Doctrine\DBAL\DBALException $e) {
+            echo $e->getTraceAsString();
+        }
+    }
 }

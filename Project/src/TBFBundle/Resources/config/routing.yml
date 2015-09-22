@@ -63,3 +63,7 @@ tbf_users_details:
     defaults: { _controller: TBFBundle:users:details }
     requirements:
              id: \d+
+             
+tbf_search_result:
+    path:     /result/{id}
+    defaults: { _controller: TBFFrontBundle:Search:result, id: 1 }

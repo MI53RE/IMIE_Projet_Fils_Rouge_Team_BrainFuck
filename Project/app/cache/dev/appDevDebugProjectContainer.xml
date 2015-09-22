@@ -33,6 +33,8 @@
     <parameter key="mailer_host">127.0.0.1</parameter>
     <parameter key="mailer_user">null</parameter>
     <parameter key="mailer_password">null</parameter>
+    <parameter key="database_driver">pdo_pgsql</parameter>
+    <parameter key="database_path">null</parameter>
     <parameter key="secret">d34625345192363425ba4baeaa7cca12fe458425</parameter>
     <parameter key="locale">en</parameter>
     <parameter key="controller_resolver.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver</parameter>
@@ -1710,7 +1712,7 @@
       <argument type="collection">
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>56000a83068814.73883708</argument>
+            <argument>560107131e88b4.76727269</argument>
           </service>
         </argument>
       </argument>
@@ -1833,7 +1835,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>56000a83068814.73883708</argument>
+            <argument>560107131e88b4.76727269</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>

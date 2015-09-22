@@ -15,8 +15,8 @@ class __TwigTemplate_b95bee7c6e436305540644eda1b83f86cc50efaa2c5527ce3b7384bc61c
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_1805bca7758ac34b85490428697a0e2ad6ff6818d720742ba8754a9a5eb73b11 = $this->env->getExtension("native_profiler");
-        $__internal_1805bca7758ac34b85490428697a0e2ad6ff6818d720742ba8754a9a5eb73b11->enter($__internal_1805bca7758ac34b85490428697a0e2ad6ff6818d720742ba8754a9a5eb73b11_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "menu.html.twig"));
+        $__internal_7c8e4f09fb9989c0a4ab944b50f53211991230813acd3bbfd2ccf3b272ce4ae8 = $this->env->getExtension("native_profiler");
+        $__internal_7c8e4f09fb9989c0a4ab944b50f53211991230813acd3bbfd2ccf3b272ce4ae8->enter($__internal_7c8e4f09fb9989c0a4ab944b50f53211991230813acd3bbfd2ccf3b272ce4ae8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "menu.html.twig"));
 
         // line 1
         echo "<nav>
@@ -49,13 +49,9 @@ class __TwigTemplate_b95bee7c6e436305540644eda1b83f86cc50efaa2c5527ce3b7384bc61c
           
         </li>
     </ul>
-    <form class=\"\" id=\"search\">
-        <input type=\"text\" placeholder=\"Search...\"/>
-        <button>Vas chercher!</button>
-    </form>
 </nav>";
         
-        $__internal_1805bca7758ac34b85490428697a0e2ad6ff6818d720742ba8754a9a5eb73b11->leave($__internal_1805bca7758ac34b85490428697a0e2ad6ff6818d720742ba8754a9a5eb73b11_prof);
+        $__internal_7c8e4f09fb9989c0a4ab944b50f53211991230813acd3bbfd2ccf3b272ce4ae8->leave($__internal_7c8e4f09fb9989c0a4ab944b50f53211991230813acd3bbfd2ccf3b272ce4ae8_prof);
 
     }
 
