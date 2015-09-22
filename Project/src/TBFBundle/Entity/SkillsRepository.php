@@ -25,5 +25,21 @@ class SkillsRepository extends EntityRepository
             ->getQuery()
             ->getSingleResult();
     }
+    
+    //vincent
+    
+    public function getSkillsByIds($name){
+        try {
+            $qb = $this->createQueryBuilder('s');
+            return $qb      ->leftJoin('s.users', 'usrid')
+                            ->addSelect('usrid')
+                            ->where($qb->expr()->like('s.name', ':name'))
+                            ->setParameter('name', '%' . $name . '%')
+                            ->getQuery()
+                            ->getResult();
+        } catch (\Doctrine\DBAL\DBALException $e) {
+            //echo $e->getTraceAsString();
+        }
+    }
 
 }

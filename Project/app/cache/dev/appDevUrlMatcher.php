@@ -195,14 +195,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         if (0 === strpos($pathinfo, '/users')) {
             // tbf_users
             if ($pathinfo === '/users') {
-                return array (  '_controller' => 'TBFBundle:users:index',  '_route' => 'tbf_users',);
+                return array (  '_controller' => 'TBFBundle\\Controller\\usersController::indexAction',  '_route' => 'tbf_users',);
             }
 
             // tbf_users_details
             if (0 === strpos($pathinfo, '/users/details') && preg_match('#^/users/details/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tbf_users_details')), array (  '_controller' => 'TBFBundle:users:details',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tbf_users_details')), array (  '_controller' => 'TBFBundle\\Controller\\usersController::detailsAction',));
             }
 
+        }
+
+        // tbf_search_result
+        if (0 === strpos($pathinfo, '/result') && preg_match('#^/result(?:/(?P<id>[^/]++))?$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'tbf_search_result')), array (  '_controller' => 'TBFFrontBundle:Search:result',  'id' => 1,));
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

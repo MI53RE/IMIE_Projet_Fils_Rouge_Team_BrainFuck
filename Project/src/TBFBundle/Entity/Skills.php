@@ -36,9 +36,7 @@ class Skills
     private $description;
 
     /**
-     * @var array
-     *
-     * @ORM\Column(name="users", type="array")
+     * @ORM\ManyToMany(targetEntity="Users", inversedBy="skills")
      */
     private $users;
 
