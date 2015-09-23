@@ -91,6 +91,14 @@ a.btn-cta-primary:hover,
   margin-top: 0;
   margin-bottom: 15px;
 }
+.header .input-group{
+  padding-left: 60px;
+  padding-right: 60px;
+}
+.header .input-group .form-control {
+  margin-top: 60px;
+  padding: 18px;
+}
 /* ======= Sections======= */
 .sections-wrapper {
   padding-top: 20px;
@@ -135,10 +143,28 @@ a.btn-cta-primary:hover,
     margin-top: 30px;
     float: none !important;
   }
+  .header .input-group .form-control {
+  margin-top: 30px;
+  padding: 18px;
+  float: none !important;
+  }
   .project-image {
     margin-bottom: 15px;
   }
 }
+
+@media (max-width: 993px) {
+   .header .input-group .form-control {
+    margin-top: 26px;
+    margin-right: 32px;
+    padding: 18px;
+    float: none !important;
+  }
+  .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-groupn {
+    margin-top: 26px;
+  }
+
+} 
 /* Small devices (tablets, 768px and up) */
 /* Medium devices (desktops, 992px and up) */
 /* Large devices (large desktops, 1200px and up) */
