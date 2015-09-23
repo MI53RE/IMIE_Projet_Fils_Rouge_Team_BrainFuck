@@ -22,9 +22,72 @@ class ProjectsController extends Controller
         var_dump($project);
         return $this->render('TBFBundle:Projects:details.html.twig', 
         	array('project' => $project));
+    }function addAction(Request $req){
+        $project = new Project();
+        $form = $this->createForm(new ProjectType(), $project, array(
+            'action' => $this->generateUrl('tbf_projects_form')
+        ));
+
+        $form->handleRequest($req);
+
+        if ($form->isValid()) {
+            try {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($project);
+                $em->flush();
+                $req->getSession()->getFlashBag()->add('success', 'Skill ajouté');
+                return $this->redirect($this->generateUrl('tbf_projects_index'));
+            }
+            catch (\Doctrine\DBAL\DBALException $e) {
+                $req->getSession()->getFlashBag()->add('danger', 'Erreur lors de l\'ajout :'
+                    . PHP_EOL . $e->getMessage());
+            }
+        }
+
+        return $this->render('TBFBundle:Projects:form.html.twig', array(
+            'form' => $form->createView()
+        ));
+
+
     }
-    public function addAction()
+    public function removeAction($id, Request $req) {
+        $em = $this->getDoctrine()->getManager();
+        $repo = $em->getRepository('TBFBundle:Projects');
+        $projectToRemove = $repo->findOneById($id);
+
+        try {
+            $em->remove($projectToRemove);
+            $em->flush();
+            $req->getSession()->getFlashBag()->add('success', 'Projet supprimé');
+        } catch (\Doctrine\DBAL\DBALException $e) {
+            $req->getSession()->getFlashBag()->add('danger', 'Erreur lors de la suppression :'
+                . PHP_EOL . $e->getMessage());
+        }
+        return $this->redirect($this->generateUrl('tbf_projects_index'));
+    }
+
+    public function modifyAction(Project $project, Request $req)
     {
-        return $this->render('TBFBundle:Projects:form.html.twig');
+
+        $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm(new ProjectType(), $project, array(
+            'action' => $this->generateUrl('tbf_projects_modify', array('id' => $project->getId()))
+        ));
+
+        $form->handleRequest($req);
+
+        if ($form->isValid()) {
+            try {
+                $em->flush();
+                $req->getSession()->getFlashBag()->add('success', 'Competence modifier');
+                return $this->redirect($this->generateUrl('tbf_projects_index'));
+            } catch (\Doctrine\DBAL\DBALException $e) {
+                $req->getSession()->getFlashBag()->add('danger', 'Erreur lors de l\'ajout :'
+                    . PHP_EOL . $e->getMessage());
+            }
+        }
+        return $this->render('TBFBundle:Projects:add.html.twig', array(
+            'form' => $form->createView(), 'skill' => $project
+        ));
     }
 }
