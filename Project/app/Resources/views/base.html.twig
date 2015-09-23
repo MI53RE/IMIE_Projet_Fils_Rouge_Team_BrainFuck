@@ -21,12 +21,18 @@
                     <h1 class="name">IMIE PROJECT</h1>
                     <h2 class="desc">Projets et compétences</h2>   
                 </div><!--//profile-->
-                <form action="{{path('tbf_search_result')}}" method="GET">
-                    <input name="search" type="text" placeholder="recherche..."/>
-                    <button>Vas chercher!</button>
-                </form>
-                <div>  
+               <div>  
                     <a class="btn btn-cta-primary pull-right" href="{{ path('tbf_connexion') }}"><i class="glyphicon glyphicon-user"></i> Connexion</a>              
+                </div>
+                <div class="pull-middle">
+                    <form id="search" action="{{path('tbf_search_result')}}" method="GET">
+                        <div class="input-group">
+                            <input class="form-control" name="search" type="text" placeholder="Rechercher ..."/>
+                            <span class="input-group-btn"> 
+                                <button type="submit" class="btn btn-primary">Ok</button>
+                            </span>
+                        </div>
+                    </form>
                 </div>             
             </div><!--//container-->
         </header><!-- /header --> 
