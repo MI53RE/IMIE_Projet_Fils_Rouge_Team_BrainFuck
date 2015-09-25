@@ -8,3 +8,14 @@ cbf6c8,::1,GET,http://localhost/projetecole2/PFR_TeamBrainFuck/Project/web/app_d
 90326d,::1,GET,http://localhost/projetecole2/PFR_TeamBrainFuck/Project/web/app_dev.php/,1443170138,,200
 908d4b,::1,GET,http://localhost/projetecole2/PFR_TeamBrainFuck/Project/web/app_dev.php/,1443170140,,200
 cd2e8f,::1,GET,http://localhost/projetecole2/PFR_TeamBrainFuck/Project/web/app_dev.php/users,1443170143,,200
+1c9248,::1,GET,http://localhost/projetecole2/PFR_TeamBrainFuck/Project/web/app_dev.php/skills,1443174931,,200
+c18146,::1,GET,http://localhost/projetecole2/PFR_TeamBrainFuck/Project/web/app_dev.php/skills/add,1443174933,,200
+08a6b3,::1,POST,http://localhost/projetecole2/PFR_TeamBrainFuck/Project/web/app_dev.php/skills/add,1443174940,,302
+653166,::1,GET,http://localhost/projetecole2/PFR_TeamBrainFuck/Project/web/app_dev.php/skills,1443174941,,200
+40967f,::1,GET,http://localhost/projetecole2/PFR_TeamBrainFuck/Project/web/app_dev.php/skills/modify/2,1443174943,,200
+0240e6,::1,POST,http://localhost/projetecole2/PFR_TeamBrainFuck/Project/web/app_dev.php/skills/modify/2,1443174946,,302
+0b6074,::1,GET,http://localhost/projetecole2/PFR_TeamBrainFuck/Project/web/app_dev.php/skills,1443174947,,200
+962511,::1,GET,http://localhost/projetecole2/PFR_TeamBrainFuck/Project/web/app_dev.php/skills,1443176584,,200
+829ddd,::1,GET,http://localhost/projetecole2/PFR_TeamBrainFuck/Project/web/app_dev.php/,1443176587,,200
+2d79e9,::1,GET,http://localhost/projetecole2/PFR_TeamBrainFuck/Project/web/app_dev.php/projects,1443176794,,200
+0245cc,::1,GET,http://localhost/projetecole2/PFR_TeamBrainFuck/Project/web/app_dev.php/skills,1443176797,,200

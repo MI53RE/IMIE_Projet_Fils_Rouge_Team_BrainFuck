@@ -73,7 +73,7 @@ class SkillsController extends Controller {
     {
 
         $em = $this->getDoctrine()->getManager();
-        $form = $this->createForm(new SKillsType(), $skill, array(
+        $form = $this->createForm(new SkillsType(), $skill, array(
             'action' => $this->generateUrl('tbf_skills_modify', array('id' => $skill->getId()))
         ));
 
