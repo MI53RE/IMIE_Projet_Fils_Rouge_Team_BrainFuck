@@ -8,7 +8,8 @@ Rappel d'utilisation:
   - dans le shell taper 'git clone ' + collez le liens
   - pressez 'enter'
   - si tout se passe bien, vous devriez voir le chemin suivant: 'lettre du lecteur':\Chemin\Vers\Le\Repo(master)
-  - pour commencer à travailler penser à changer de branche!!: "git checkout origin 'nom de la branche'"
+  - pour commencer à travailler penser à changer de branche!!: "git checkout 'nom de la branche'(sans les guillemets)"
+  - si la branche n'existe pas encore, il faut rajouter -b avant le nom de la branche
   - vous devriez voir le chemin suivant: 'lettre du lecteur':\Chemin\Vers\Le\Repo(nom de la branche)
 
 
