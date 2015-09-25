@@ -77,6 +77,7 @@
   'SwiftmailerBundle:Collector:swiftmailer.html.twig' => 'C:\\Program Files (x86)\\EasyPHP-DevServer-14.1VC11\\data\\localweb\\PFR_TeamBrainFuck\\Project\\vendor\\symfony\\swiftmailer-bundle/Resources/views/Collector/swiftmailer.html.twig',
   'DoctrineBundle:Collector:db.html.twig' => 'C:\\Program Files (x86)\\EasyPHP-DevServer-14.1VC11\\data\\localweb\\PFR_TeamBrainFuck\\Project\\vendor\\doctrine\\doctrine-bundle/Resources/views/Collector/db.html.twig',
   'DoctrineBundle:Collector:explain.html.twig' => 'C:\\Program Files (x86)\\EasyPHP-DevServer-14.1VC11\\data\\localweb\\PFR_TeamBrainFuck\\Project\\vendor\\doctrine\\doctrine-bundle/Resources/views/Collector/explain.html.twig',
+  'TBFBundle:Default:connexion.html.twig' => 'C:\\Program Files (x86)\\EasyPHP-DevServer-14.1VC11\\data\\localweb\\PFR_TeamBrainFuck\\Project\\src\\TBFBundle/Resources/views/Default/connexion.html.twig',
   'TBFBundle:Default:index.html.twig' => 'C:\\Program Files (x86)\\EasyPHP-DevServer-14.1VC11\\data\\localweb\\PFR_TeamBrainFuck\\Project\\src\\TBFBundle/Resources/views/Default/index.html.twig',
   'TBFBundle:Projects:add.html.twig' => 'C:\\Program Files (x86)\\EasyPHP-DevServer-14.1VC11\\data\\localweb\\PFR_TeamBrainFuck\\Project\\src\\TBFBundle/Resources/views/Projects/add.html.twig',
   'TBFBundle:Projects:details.html.twig' => 'C:\\Program Files (x86)\\EasyPHP-DevServer-14.1VC11\\data\\localweb\\PFR_TeamBrainFuck\\Project\\src\\TBFBundle/Resources/views/Projects/details.html.twig',
