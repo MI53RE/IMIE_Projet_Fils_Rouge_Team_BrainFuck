@@ -2,4 +2,4 @@ _assetic:
     resource: .
     type: assetic
 _app:
-    resource: 'C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\PFR_TeamBrainFuck\Project\app/config/routing_dev.yml'
+    resource: 'C:\wamp\www\ProjetEcole2\PFR_TeamBrainFuck\Project\app/config/routing_dev.yml'

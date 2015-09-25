@@ -48,7 +48,7 @@ class Users
     //vincent
     /**
      *
-     * @ORM\ManyToMany(targetEntity="Skills", mappedBy="users")
+     * @ORM\OneToMany(targetEntity="Users_Skills", mappedBy="users")
      */
     private $skills;
 

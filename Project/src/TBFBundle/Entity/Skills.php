@@ -2,6 +2,7 @@
 
 namespace TBFBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,10 +37,20 @@ class Skills
     private $description;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Users", inversedBy="skills")
+     * @ORM\OneToMany(targetEntity="Users_Skills", mappedBy="skills")
      */
     private $users;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Projects", mappedBy="skills")
+     */
+    private $projects;
+
+    public function __construct()
+    {
+        $this->projects = new ArrayCollection();
+        $this->users = new ArrayCollection();
+    }
 
     /**
      * Get id
