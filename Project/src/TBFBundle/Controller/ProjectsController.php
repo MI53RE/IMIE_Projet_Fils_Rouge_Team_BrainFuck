@@ -3,6 +3,10 @@
 namespace TBFBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use TBFBundle\Entity\Projects;
+use TBFBundle\Form\ProjectsType;
 
 class ProjectsController extends Controller
 {
@@ -22,10 +26,11 @@ class ProjectsController extends Controller
         var_dump($project);
         return $this->render('TBFBundle:Projects:details.html.twig', 
         	array('project' => $project));
-    }function addAction(Request $req){
-        $project = new Project();
-        $form = $this->createForm(new ProjectType(), $project, array(
-            'action' => $this->generateUrl('tbf_projects_form')
+    }
+    public function addAction(Request $req){
+        $project = new Projects();
+        $form = $this->createForm(new ProjectsType(), $project, array(
+            'action' => $this->generateUrl('tbf_projects_add')
         ));
 
         $form->handleRequest($req);
@@ -35,7 +40,7 @@ class ProjectsController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($project);
                 $em->flush();
-                $req->getSession()->getFlashBag()->add('success', 'Skill ajouté');
+                $req->getSession()->getFlashBag()->add('success', 'Project added');
                 return $this->redirect($this->generateUrl('tbf_projects_index'));
             }
             catch (\Doctrine\DBAL\DBALException $e) {
@@ -87,7 +92,7 @@ class ProjectsController extends Controller
             }
         }
         return $this->render('TBFBundle:Projects:add.html.twig', array(
-            'form' => $form->createView(), 'skill' => $project
+            'form' => $form->createView(), 'project' => $project
         ));
     }
 }

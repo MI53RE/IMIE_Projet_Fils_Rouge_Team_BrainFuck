@@ -62,10 +62,10 @@ class Projects
      *      referencedColumnName="id")}
      *  )
      */
-    private $requiredSkills;
+    private $skills;
     
     public function __construct(){
-        $this->requiredSkills = new ArrayCollection();
+        $this->Skills = new ArrayCollection();
     }
 
     /**
@@ -171,25 +171,39 @@ class Projects
     }
 
     /**
-     * Set requiredSkills
+     * Add skills
      *
-     * @param array $requiredSkills
      * @return Projects
      */
-    public function addRequiredSkills($requiredSkills)
+    public function addSkills($skill)
     {
-        $this->requiredSkills[] = $requiredSkills;
+        $this->skills[] = $skill;
     
         return $this;
     }
 
     /**
-     * Get requiredSkills
+     * Add skills
+     *
+     * @param array $skills
+     * @return Projects
+     */
+    public function setSkills($skills)
+    {
+        foreach ($skills as $skill) {
+            $this->addSkills($skill);
+        }
+    
+        return $this;
+    }
+
+    /**
+     * Get Skills
      *
      * @return array 
      */
-    public function getRequiredSkills()
+    public function getSkills()
     {
-        return $this->requiredSkills;
+        return $this->skills;
     }
 }

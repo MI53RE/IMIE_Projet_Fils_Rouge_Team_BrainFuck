@@ -1,16 +1,17 @@
 {% extends 'base.html.twig' %}
 {% block title %}Project{% endblock %}
 {% block body %}
+    <a href="{{ path('tbf_projects_add') }}">Créer un projet</a>
 	<h2>Project!</h2>
 	<div>
 		<h3>Projects</h3>
-		<table>
+		<table class="table table-striped">
 			<tr>
 				<th>Project's Name</th>
 				<th>Project's Status</th>
 				<th>Project's Members</th>
 			</tr>
-			{% for project in projects %}
+			{% for project in projects if projects is defined  %}
 			<tr>
 				<td>{{ project.name }}</td>
 				<td>{{ project.state }}</td>

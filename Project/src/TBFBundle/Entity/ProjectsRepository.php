@@ -38,7 +38,7 @@ class ProjectsRepository extends EntityRepository
             $qb = $this->createQueryBuilder('p');
             return $qb      ->leftJoin('p.members', 'usrid')
                             ->addSelect('usrid')
-                            ->leftJoin('p.requiredSkills', 'skillid')
+                            ->leftJoin('p.skills', 'skillid')
                             ->addSelect('skillid')
                             ->where($qb->expr()->like('p.name', ':name'))
                             ->setParameter('name', '%' . $name . '%')
