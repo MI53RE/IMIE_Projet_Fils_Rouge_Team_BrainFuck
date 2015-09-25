@@ -12,24 +12,23 @@ use Doctrine\ORM\EntityRepository;
  */
 class UsersRepository extends EntityRepository
 {
-    //vincent
     
-//    public function getUsersByIds($name){
-//        try {
-//            $qb = $this->createQueryBuilder('n');
-//            return $qb      ->leftJoin('n.skills', 'skillid')
-//                            ->addSelect('skillid')
-//                            ->leftJoin('n.projects', 'projectid')
-//                            ->addSelect('projectid')
-//                            ->where($qb->expr()->like('n.firstname', ':name'))
-//                            ->setParameter('name', '%' . $name . '%')
-//                            ->getQuery()
-//                            ->getResult();
-//        } catch (\Doctrine\DBAL\DBALException $e) {
-//           // echo $e->getTraceAsString();
-//        }
-//
-//    }
+   public function getUsersByIds($name){
+       try {
+           $qb = $this->createQueryBuilder('n');
+           return $qb      ->leftJoin('n.skills', 'skillid')
+                           ->addSelect('skillid')
+                           ->leftJoin('n.projects', 'projectid')
+                           ->addSelect('projectid')
+                           ->where($qb->expr()->like('n.firstname', ':name'))
+                           ->setParameter('name', '%' . $name . '%')
+                           ->getQuery()
+                           ->getResult();
+       } catch (\Doctrine\DBAL\DBALException $e) {
+          // echo $e->getTraceAsString();
+       }
+
+   }
     public function getUsersById($id) {
         return $this->createQueryBuilder('u')
             ->where('u.id = :id')

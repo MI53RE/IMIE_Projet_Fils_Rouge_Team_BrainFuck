@@ -41,9 +41,14 @@ class ProjectsController extends Controller
                 $em->persist($project);
                 $em->flush();
                 $req->getSession()->getFlashBag()->add('success', 'Project added');
-                return $this->redirect($this->generateUrl('tbf_projects_index'));
+                return $this->redirect($this->generateUrl('tbf_projects'));
             }
             catch (\Doctrine\DBAL\DBALException $e) {
+                if ($e === null){
+                    var_dump(' 48 niope!');
+                }else{
+                    var_dump(' 50 yep!');
+                }
                 $req->getSession()->getFlashBag()->add('danger', 'Erreur lors de l\'ajout :'
                     . PHP_EOL . $e->getMessage());
             }
