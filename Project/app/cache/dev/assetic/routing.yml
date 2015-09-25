@@ -1,5 +1,0 @@
-_assetic:
-    resource: .
-    type: assetic
-_app:
-    resource: 'C:\wamp\www\ProjetEcole2\PFR_TeamBrainFuck\Project\app/config/routing_dev.yml'
