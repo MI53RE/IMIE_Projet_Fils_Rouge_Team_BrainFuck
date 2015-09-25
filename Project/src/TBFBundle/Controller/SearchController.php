@@ -3,12 +3,13 @@
 namespace TBFBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class SearchController extends Controller
 {
-    public function resultAction()
+    public function resultAction(Request $req)
     {
-        $field = htmlentities($_GET['search']);
+        $field = htmlentities($req->get('search'));
         
         $result = $this->getDoctrine()->getManager();
         
