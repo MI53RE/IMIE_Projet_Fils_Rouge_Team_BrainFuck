@@ -17,6 +17,10 @@ Rappel d'utilisation:
   - ouvrir votre cmd/terminal dans votre dossier local
   - verifier bien que vous n'êtes pas sur master
   - taper 'git status', s'affiche en rouge la liste des fichiers/dossier qui ont été modifier depuis le dernier pull
+  - avant tout le reste faite ce qui suis:
+  - tapez 'git rm -f -r app/cache' 
+  - tapez 'git rm -f -r app/logs' 
+  - tapez 'git checkout app/config/parameters.yml' 
   - pour chaque fichiers/dossier taper 'git add 'chemine\vers\fichier\nom-fichier''
   - une fois fini retaper 'git status' tout devrait être vert (sinon revenez à l'étape precedente)
   - si tout est bon vous pouvez taper 'git commit -m "message du commit (TOUJOURS EXPLIQUER LE CONTENU DU COMMIT)"'

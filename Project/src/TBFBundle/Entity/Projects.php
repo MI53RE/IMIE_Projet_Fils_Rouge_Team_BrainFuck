@@ -59,13 +59,14 @@ class Projects
      *      joinColumns = {@ORM\JoinColumn(name="project_id",
      *      referencedColumnName="id")}, 
      *      inverseJoinColumns = {@ORM\JoinColumn(name="skill_id",
-     *      referencedColumnName="id")}
+     *      referencedColumnName="id", nullable=true)}
      *  )
      */
     private $skills;
     
     public function __construct(){
         $this->Skills = new ArrayCollection();
+        $this->state = 0;
     }
 
     /**
