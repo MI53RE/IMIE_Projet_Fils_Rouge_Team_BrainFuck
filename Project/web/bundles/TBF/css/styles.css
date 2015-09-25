@@ -99,6 +99,24 @@ a.btn-cta-primary:hover,
   margin-top: 60px;
   padding: 18px;
 }
+/* For Firefox only */
+@-moz-document url-prefix() {
+    .input-file-sm {
+        height: auto;
+    }
+}
+@-moz-document url-prefix() {
+    .input-file-bt {
+      height: auto;
+      padding: 17px;
+    }
+}
+@-moz-document url-prefix() {
+    .header .btn{
+     padding: 17px; 
+    }
+}
+
 /* ======= Sections======= */
 .sections-wrapper {
   padding-top: 20px;
