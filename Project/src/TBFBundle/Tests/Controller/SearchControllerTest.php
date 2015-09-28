@@ -14,8 +14,8 @@ class SearchControllerTest extends WebTestCase{
     public function testResultOfSearchIsNotEmpty(){
         $search = new SearchController();
         
-        $result = $search->getRepo("rxp", "TBFBundle:Projects", "getProjectByIds");
+        $result = $search->getRepo();
         
-        $this->assertNull('foo');
+        $this->assertNotNull($result);
     }
 }
