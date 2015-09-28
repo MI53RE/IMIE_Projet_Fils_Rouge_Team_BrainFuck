@@ -47,11 +47,10 @@ class Users extends BaseUser
      */
     private $projects;
     
-    //vincent
+
     /**
      *
-     * @ORM\ManyToMany(targetEntity="Skills", mappedBy="users")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\OneToMany(targetEntity="UsersSkills", mappedBy="users", cascade={"persist"})
      */
     private $skills;
 
