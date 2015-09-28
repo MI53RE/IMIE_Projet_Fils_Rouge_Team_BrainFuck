@@ -11,6 +11,7 @@ namespace TBFBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use TBFBundle\Form\UsersSkillsType;
 
 class UsersType extends AbstractType
 {
@@ -24,16 +25,7 @@ class UsersType extends AbstractType
             ->add('firstname')
             ->add('lastname')
             ->add('projects')
-            ->add('skills','entity',array(
-                'expanded' => true,
-                'multiple' => true,
-                'class' => 'TBFBundle:Skills',
-                'property' => 'name',
-                'query_builder' => function(\Doctrine\ORM\EntityRepository $repo){
-                     $qb = $repo->createQueryBuilder('s');
-                    return $qb;
-                },
-            ))
+            ->add('skills', new UsersSkillsType(), array('mapped' => false))
             ->add('ajouter', 'submit')
         ;
     }

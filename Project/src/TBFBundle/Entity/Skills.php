@@ -37,12 +37,12 @@ class Skills
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity="Users_Skills", mappedBy="skills")
+     * @ORM\OneToMany(targetEntity="UsersSkills", mappedBy="skills", cascade={"persist"})
      */
     private $users;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Projects", mappedBy="skills")
+     * @ORM\ManyToMany(targetEntity="Projects", mappedBy="skills", cascade={"persist"})
      */
     private $projects;
 

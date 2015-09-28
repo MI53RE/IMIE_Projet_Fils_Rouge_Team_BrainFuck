@@ -45,10 +45,10 @@ class Users
      */
     private $projects;
     
-    //vincent
+
     /**
      *
-     * @ORM\ManyToMany(targetEntity="Skills", mappedBy="users")
+     * @ORM\OneToMany(targetEntity="UsersSkills", mappedBy="users", cascade={"persist"})
      */
     private $skills;
 
