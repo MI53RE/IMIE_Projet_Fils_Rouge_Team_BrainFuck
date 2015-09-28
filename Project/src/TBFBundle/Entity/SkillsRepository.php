@@ -28,7 +28,7 @@ class SkillsRepository extends EntityRepository
     
     //vincent
     
-    public function getSkillsByIds($name){
+    public function getSkillsByName($name){
         try {
             $qb = $this->createQueryBuilder('s');
             return $qb      ->leftJoin('s.users', 'usrid')

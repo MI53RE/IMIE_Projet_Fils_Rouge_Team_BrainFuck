@@ -23,7 +23,6 @@ class ProjectsController extends Controller
     	$result = $this->getDoctrine()->getManager();
     	$repo = $result->getRepository('TBFBundle:Projects');
     	$project = $repo->getProjectById($id);
-        var_dump($project);
         return $this->render('TBFBundle:Projects:details.html.twig', 
         	array('project' => $project));
     }
@@ -73,14 +72,14 @@ class ProjectsController extends Controller
             $req->getSession()->getFlashBag()->add('danger', 'Erreur lors de la suppression :'
                 . PHP_EOL . $e->getMessage());
         }
-        return $this->redirect($this->generateUrl('tbf_projects_index'));
+        return $this->redirect($this->generateUrl('tbf_projects'));
     }
 
-    public function modifyAction(Project $project, Request $req)
+    public function modifyAction(Projects $project, Request $req)
     {
 
         $em = $this->getDoctrine()->getManager();
-        $form = $this->createForm(new ProjectType(), $project, array(
+        $form = $this->createForm(new ProjectsType(), $project, array(
             'action' => $this->generateUrl('tbf_projects_modify', array('id' => $project->getId()))
         ));
 
@@ -90,13 +89,13 @@ class ProjectsController extends Controller
             try {
                 $em->flush();
                 $req->getSession()->getFlashBag()->add('success', 'Competence modifier');
-                return $this->redirect($this->generateUrl('tbf_projects_index'));
+                return $this->redirect($this->generateUrl('tbf_projects'));
             } catch (\Doctrine\DBAL\DBALException $e) {
                 $req->getSession()->getFlashBag()->add('danger', 'Erreur lors de l\'ajout :'
                     . PHP_EOL . $e->getMessage());
             }
         }
-        return $this->render('TBFBundle:Projects:add.html.twig', array(
+        return $this->render('TBFBundle:Projects:form.html.twig', array(
             'form' => $form->createView(), 'project' => $project
         ));
     }

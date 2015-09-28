@@ -54,6 +54,17 @@ class Projects
     private $state;
 
     /**
+     * @var array
+     */
+    private $stateList = [
+                            'En attente d\'approbation',
+                            'Actif',
+                            'Abandonné',
+                            'Terminé',
+                            'Refusé',
+                        ];
+
+    /**
      * @ORM\ManyToMany(targetEntity="Skills", inversedBy="projects")
      * @ORM\JoinTable(name="projects_skills", 
      *      joinColumns = {@ORM\JoinColumn(name="project_id",
@@ -169,6 +180,16 @@ class Projects
     public function getState()
     {
         return $this->state;
+    }
+
+    /**
+     * Get stateList
+     *
+     * @return integer 
+     */
+    public function getStateList($id)
+    {
+        return $this->stateList[$id];
     }
 
     /**

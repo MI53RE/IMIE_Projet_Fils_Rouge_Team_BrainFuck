@@ -13,7 +13,7 @@ use Doctrine\ORM\EntityRepository;
 class UsersRepository extends EntityRepository
 {
     
-   public function getUsersByIds($name){
+   public function getUsersByName($name){
        try {
            $qb = $this->createQueryBuilder('n');
            return $qb      ->leftJoin('n.skills', 'skillid')
@@ -25,7 +25,7 @@ class UsersRepository extends EntityRepository
                            ->getQuery()
                            ->getResult();
        } catch (\Doctrine\DBAL\DBALException $e) {
-          // echo $e->getTraceAsString();
+           //echo $e->getTraceAsString();
        }
 
    }
