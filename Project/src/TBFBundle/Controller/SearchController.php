@@ -13,7 +13,6 @@ class SearchController extends Controller
         
         $result = $this->getDoctrine()->getManager();
 
- //       return new \Symfony\Component\HttpFoundation\Response(var_dump($projects));
         return $this->render("TBFBundle:Search:result.html.twig", array(
             "projects" => $this->getRepo($field, "TBFBundle:Projects", "getProjectByName"),
             "users" => $this->getRepo($field, "TBFBundle:Users", "getUsersByName"),

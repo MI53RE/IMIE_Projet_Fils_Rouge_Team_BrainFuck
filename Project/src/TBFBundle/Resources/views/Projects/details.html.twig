@@ -10,23 +10,21 @@
 				<th>Firstname</th>
 				<th>Lastname</th>
 			</tr>
-			{% for member in project[0].members %}
-			<tr><td>{{ member.firstname }}</td><td>{{ member.lastname }}</td></tr>
+			{% for member in project[0].members if project[0].members is defined %}
+			<tr><td> {{ member.firstname }} </td><td> {{ member.lastname }} </td></tr>
 			{% endfor %}
 		</table>
 		<table>
 			<tr>
 				<th>Required skill(s)</th>
 			</tr>
-			{% for skill in project[0].requiredSkills %}}
-				<tr><td>{{ skill.name }}</td></tr>
+			{% for skill in project[0].skills if project[0].skills is defined %}}
+				<tr><td> {{ skill.name }} </td></tr>
 			{% endfor %}
 		</table>
 		<div>
 			<h4>Project description</h4>
-			<p>{{ project[0].description }}<p>
+			<p> {{ project[0].description }} <p>
 		</div>
-		one project!
-                <p>coucou!</p>
 	</div>
 {% endblock %}
