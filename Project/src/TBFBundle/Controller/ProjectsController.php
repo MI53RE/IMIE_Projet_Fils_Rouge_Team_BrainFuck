@@ -3,6 +3,10 @@
 namespace TBFBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use TBFBundle\Entity\Projects;
+use TBFBundle\Form\ProjectsType;
 
 class ProjectsController extends Controller
 {
@@ -19,13 +23,13 @@ class ProjectsController extends Controller
     	$result = $this->getDoctrine()->getManager();
     	$repo = $result->getRepository('TBFBundle:Projects');
     	$project = $repo->getProjectById($id);
-        var_dump($project);
         return $this->render('TBFBundle:Projects:details.html.twig', 
         	array('project' => $project));
-    }function addAction(Request $req){
-        $project = new Project();
-        $form = $this->createForm(new ProjectType(), $project, array(
-            'action' => $this->generateUrl('tbf_projects_form')
+    }
+    public function addAction(Request $req){
+        $project = new Projects();
+        $form = $this->createForm(new ProjectsType(), $project, array(
+            'action' => $this->generateUrl('tbf_projects_add')
         ));
 
         $form->handleRequest($req);
@@ -35,10 +39,15 @@ class ProjectsController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($project);
                 $em->flush();
-                $req->getSession()->getFlashBag()->add('success', 'Skill ajouté');
-                return $this->redirect($this->generateUrl('tbf_projects_index'));
+                $req->getSession()->getFlashBag()->add('success', 'Project added');
+                return $this->redirect($this->generateUrl('tbf_projects'));
             }
             catch (\Doctrine\DBAL\DBALException $e) {
+                if ($e === null){
+                    var_dump(' 48 niope!');
+                }else{
+                    var_dump(' 50 yep!');
+                }
                 $req->getSession()->getFlashBag()->add('danger', 'Erreur lors de l\'ajout :'
                     . PHP_EOL . $e->getMessage());
             }
@@ -63,14 +72,14 @@ class ProjectsController extends Controller
             $req->getSession()->getFlashBag()->add('danger', 'Erreur lors de la suppression :'
                 . PHP_EOL . $e->getMessage());
         }
-        return $this->redirect($this->generateUrl('tbf_projects_index'));
+        return $this->redirect($this->generateUrl('tbf_projects'));
     }
 
-    public function modifyAction(Project $project, Request $req)
+    public function modifyAction(Projects $project, Request $req)
     {
 
         $em = $this->getDoctrine()->getManager();
-        $form = $this->createForm(new ProjectType(), $project, array(
+        $form = $this->createForm(new ProjectsType(), $project, array(
             'action' => $this->generateUrl('tbf_projects_modify', array('id' => $project->getId()))
         ));
 
@@ -80,14 +89,14 @@ class ProjectsController extends Controller
             try {
                 $em->flush();
                 $req->getSession()->getFlashBag()->add('success', 'Competence modifier');
-                return $this->redirect($this->generateUrl('tbf_projects_index'));
+                return $this->redirect($this->generateUrl('tbf_projects'));
             } catch (\Doctrine\DBAL\DBALException $e) {
                 $req->getSession()->getFlashBag()->add('danger', 'Erreur lors de l\'ajout :'
                     . PHP_EOL . $e->getMessage());
             }
         }
-        return $this->render('TBFBundle:Projects:add.html.twig', array(
-            'form' => $form->createView(), 'skill' => $project
+        return $this->render('TBFBundle:Projects:form.html.twig', array(
+            'form' => $form->createView(), 'project' => $project
         ));
     }
 }

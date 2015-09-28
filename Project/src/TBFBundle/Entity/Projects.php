@@ -54,18 +54,30 @@ class Projects
     private $state;
 
     /**
+     * @var array
+     */
+    private $stateList = [
+                            'En attente d\'approbation',
+                            'Actif',
+                            'Abandonné',
+                            'Terminé',
+                            'Refusé',
+                        ];
+
+    /**
      * @ORM\ManyToMany(targetEntity="Skills", inversedBy="projects")
      * @ORM\JoinTable(name="projects_skills", 
      *      joinColumns = {@ORM\JoinColumn(name="project_id",
      *      referencedColumnName="id")}, 
      *      inverseJoinColumns = {@ORM\JoinColumn(name="skill_id",
-     *      referencedColumnName="id")}
+     *      referencedColumnName="id", nullable=true)}
      *  )
      */
-    private $requiredSkills;
+    private $skills;
     
     public function __construct(){
-        $this->requiredSkills = new ArrayCollection();
+        $this->Skills = new ArrayCollection();
+        $this->state = 0;
     }
 
     /**
@@ -171,25 +183,49 @@ class Projects
     }
 
     /**
-     * Set requiredSkills
+     * Get stateList
      *
-     * @param array $requiredSkills
+     * @return integer 
+     */
+    public function getStateList($id)
+    {
+        return $this->stateList[$id];
+    }
+
+    /**
+     * Add skills
+     *
      * @return Projects
      */
-    public function addRequiredSkills($requiredSkills)
+    public function addSkills($skill)
     {
-        $this->requiredSkills[] = $requiredSkills;
+        $this->skills[] = $skill;
     
         return $this;
     }
 
     /**
-     * Get requiredSkills
+     * Add skills
+     *
+     * @param array $skills
+     * @return Projects
+     */
+    public function setSkills($skills)
+    {
+        foreach ($skills as $skill) {
+            $this->addSkills($skill);
+        }
+    
+        return $this;
+    }
+
+    /**
+     * Get Skills
      *
      * @return array 
      */
-    public function getRequiredSkills()
+    public function getSkills()
     {
-        return $this->requiredSkills;
+        return $this->skills;
     }
 }

@@ -24,7 +24,7 @@ class ProjectsRepository extends EntityRepository
 		return $this->createQueryBuilder('p')
 					->leftJoin('p.members','usersProjects')
 					->leftJoin('usersProjects.projects','members')
-					->leftJoin('p.requiredSkills','projectsSkills')
+					->leftJoin('p.skills','projectsSkills')
 					->where('p.id = :id')
 					->setParameter('id', $id)
 					->getQuery()
@@ -33,12 +33,12 @@ class ProjectsRepository extends EntityRepository
         
         
         // vincent
-        public function getProjectByIds($name){
+        public function getProjectByName($name){
         try {
             $qb = $this->createQueryBuilder('p');
             return $qb      ->leftJoin('p.members', 'usrid')
                             ->addSelect('usrid')
-                            ->leftJoin('p.requiredSkills', 'skillid')
+                            ->leftJoin('p.skills', 'skillid')
                             ->addSelect('skillid')
                             ->where($qb->expr()->like('p.name', ':name'))
                             ->setParameter('name', '%' . $name . '%')

@@ -58,7 +58,7 @@ tbf_skills_remove:
     requirements:
              id: \d+
 
-tbf_users:
+tbf_users_index:
     path:       /users
     defaults: { _controller: TBFBundle:users:index }
 
@@ -67,7 +67,22 @@ tbf_users_details:
     defaults: { _controller: TBFBundle:users:details }
     requirements:
              id: \d+
-             
+
+tbf_users_add:
+    path:      /users/add
+    defaults: {_controller: TBFBundle:users:add}
+
+tbf_users_modify:
+    path:      /users/modify/{id}
+    defaults: {_controller: TBFBundle:users:modify}
+    requirements:
+              id: \d+
+
+tbf_users_remove:
+    path:      /user/remove/{id}
+    defaults:  {_controller: TBFBundle:users:remove}
+    requirements:
+              id: \d+
 tbf_search_result:
     path:     /result/{id}
     defaults: { _controller: TBFBundle:Search:result, id: 1 }
