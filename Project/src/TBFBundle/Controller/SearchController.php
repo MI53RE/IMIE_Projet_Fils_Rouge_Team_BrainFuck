@@ -27,9 +27,9 @@ class SearchController extends Controller
             //"projects" => $projects,
             //"users" => $users,
             //"skills" => $skills
-            "projects" => $this->getRepo($field, "TBFBundle:Projects", "getProjectByIds"),
-            "users" => $this->getRepo($field, "TBFBundle:Users", "getUsersByIds"),
-            "skills" => $this->getRepo($field, "TBFBundle:Skills", "getSkillsByIds")
+            "projects" => $this->getRepo($field, "TBFBundle:Projects", "getProjectByName"),
+            "users" => $this->getRepo($field, "TBFBundle:Users", "getUsersByName"),
+            "skills" => $this->getRepo($field, "TBFBundle:Skills", "getSkillsByName")
         )); 
     }
     
