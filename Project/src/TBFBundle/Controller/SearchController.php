@@ -13,23 +13,37 @@ class SearchController extends Controller
         
         $result = $this->getDoctrine()->getManager();
         
-        $repo = $result->getRepository("TBFBundle:Projects");
-        $projects = $repo->getProjectByIds($field);
-        
-        $repo = $result->getRepository("TBFBundle:Users");
-        $users = $repo->getUsersByIds($field);
-        
-        $repo = $result->getRepository("TBFBundle:Skills");
-        $skills = $repo->getSkillsByIds($field);
+//        $repo = $result->getRepository("TBFBundle:Projects");
+//        $projects = $repo->getProjectByIds($field);
+//        
+//        $repo = $result->getRepository("TBFBundle:Users");
+//        $users = $repo->getUsersByIds($field);
+//        
+//        $repo = $result->getRepository("TBFBundle:Skills");
+//        $skills = $repo->getSkillsByIds($field);
         
  //       return new \Symfony\Component\HttpFoundation\Response(var_dump($projects));
         return $this->render("TBFBundle:Search:result.html.twig", array(
-            "projects" => $projects,
-            "users" => $users,
-            "skills" => $skills
+            //"projects" => $projects,
+            //"users" => $users,
+            //"skills" => $skills
+            "projects" => $this->getRepo($field, "TBFBundle:Projects", "getProjectByIds"),
+            "users" => $this->getRepo($field, "TBFBundle:Users", "getUsersByIds"),
+            "skills" => $this->getRepo($field, "TBFBundle:Skills", "getSkillsByIds")
         )); 
     }
     
+    public function getRepo($field, $repo, $method){
+        
+        $result = $this->getDoctrine()->getManager();
+        
+        $reposit = $result->getRepository($repo);
+        $class = $reposit->$method($field);
+        
+        return $class;
+    }
+
+
     public function formAction(){
         
     }
