@@ -7,6 +7,7 @@
  use Symfony\Component\HttpFoundation\Response;
  use TBFBundle\Entity\Users;
  use TBFBundle\Form\UsersType;
+ use TBFBundle\Entity\UsersSkills;
 
  class usersController extends Controller {
 
@@ -17,17 +18,28 @@
          return $this->render('TBFBundle:Users:index.html.twig', array("users" => $users));
      }
      function addAction(Request $req){
-            $user = new Users();
+         $user = new Users();
          $form = $this->createForm(new UsersType(),$user,array(
              'action' => $this->generateUrl('tbf_users_add')));
+
          $form->handleRequest($req);
 
          if ($form->isValid()) {
              try {
+
                  $em = $this->getDoctrine()->getManager();
+                 $skillsData = $form->get('skills')->getData('skills');
+                 $userSkill = new UsersSkills();
+                 $userSkill->setSkills($skillsData['skills']);
+                 $userSkill->setLevel($skillsData['level']);
+                 $userSkill->setUsers($user);
+//                $user->addSkill();
+//                     var_dump($skillsData['level']);
+//                     die();
                  $em->persist($user);
+                 $em->persist($userSkill);
                  $em->flush();
-                 $req->getSession()->getFlashBag()->add('success', 'Utilisteur ajouté');
+                 $req->getSession()->getFlashBag()->add('success', 'Utilisateur ajoutÃ©');
                  return $this->redirect($this->generateUrl('tbf_users_index'));
              }
              catch (\Doctrine\DBAL\DBALException $e) {
@@ -75,7 +87,7 @@
          try {
              $em->remove($userToRemove);
              $em->flush();
-             $req->getSession()->getFlashBag()->add('success', 'Utilisateur supprimé');
+             $req->getSession()->getFlashBag()->add('success', 'Utilisateur supprimï¿½');
          } catch (\Doctrine\DBAL\DBALException $e) {
              $req->getSession()->getFlashBag()->add('danger', 'Erreur lors de la suppression :'
                  . PHP_EOL . $e->getMessage());
