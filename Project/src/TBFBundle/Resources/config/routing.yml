@@ -94,3 +94,4 @@ tbf_registration:
 tbf_login:
     path:     /login
     defaults: { _controller: FOSUserBundle:Security:login }
+
