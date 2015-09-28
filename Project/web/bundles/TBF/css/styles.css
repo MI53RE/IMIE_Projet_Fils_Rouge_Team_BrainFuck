@@ -99,6 +99,45 @@ a.btn-cta-primary:hover,
   margin-top: 60px;
   padding: 18px;
 }
+.navbar-default {
+  background-color: #343333;
+  border-color: #343333;
+}
+.navbar-default .navbar-nav>li>a:hover {
+  color: #3757EA;
+}
+.navbar-default .navbar-nav>li>a {
+  color: #479FC8;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #479FC8;
+}
+/* Table */
+.table{
+  margin-top: 60px;
+}
+.table>thead>tr>th {
+  color: #D2D9D8;
+}
+.form-group>span {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.form-group>input{
+  margin-top: 15px;
+}
+/* Form */
+.input-lg{
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+label{
+  color: #000000;
+}
+.save{
+  color: #00F719;
+  padding-top: 10px;
+}
 /* For Firefox only */
 @-moz-document url-prefix() {
     .input-file-sm {

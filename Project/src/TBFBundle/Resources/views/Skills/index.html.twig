@@ -1,7 +1,8 @@
 {% extends 'base.html.twig' %}
 {% block title %}Skill{% endblock %}
 {% block body %}
-    <a href="{{ path('tbf_skills_add') }}">Ajouter une competence</a>
+<div class="container skills">
+    <a class="btn btn-cta-primary input-file-bt pull-left" href="{{ path('tbf_skills_add') }}">Ajouter une competence</a>
     <table class="table table-striped">
         <thead>
             <th>Nom</th>
@@ -20,4 +21,5 @@
         {% endfor %}
         </tbody>
     </table>
+</div>
 {% endblock %}
