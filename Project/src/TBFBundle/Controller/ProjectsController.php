@@ -23,7 +23,6 @@ class ProjectsController extends Controller
     	$result = $this->getDoctrine()->getManager();
     	$repo = $result->getRepository('TBFBundle:Projects');
     	$project = $repo->getProjectById($id);
-        var_dump($project);
         return $this->render('TBFBundle:Projects:details.html.twig', 
         	array('project' => $project));
     }

@@ -14,7 +14,7 @@ class SearchController extends Controller
         $result = $this->getDoctrine()->getManager();
         
         $repo = $result->getRepository("TBFBundle:Projects");
-        $projects = $repo->getProjectByIds($field);
+        $projects = $repo->getProjectByName($field);
         
         $repo = $result->getRepository("TBFBundle:Users");
         $users = $repo->getUsersByIds($field);
