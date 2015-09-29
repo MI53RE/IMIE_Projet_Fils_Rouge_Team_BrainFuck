@@ -16,16 +16,15 @@ class UsersRepository extends EntityRepository
    public function getUsersByName($name){
        try {
            $qb = $this->createQueryBuilder('n');
-           return $qb      ->leftJoin('n.skills', 'skillid')
-                           ->addSelect('skillid')
-                           ->leftJoin('n.projects', 'projectid')
+           return $qb      ->leftJoin('n.projects', 'projectid')
                            ->addSelect('projectid')
-                           ->where($qb->expr()->like('n.firstname', ':name'))
+                           //->where($qb->expr()->like('n.firstname', ':name'))
+                           ->where('n.firstname LIKE :name OR n.lastname LIKE :name')
                            ->setParameter('name', '%' . $name . '%')
                            ->getQuery()
                            ->getResult();
        } catch (\Doctrine\DBAL\DBALException $e) {
-           //echo $e->getTraceAsString();
+           echo $e->getTraceAsString();
        }
 
    }

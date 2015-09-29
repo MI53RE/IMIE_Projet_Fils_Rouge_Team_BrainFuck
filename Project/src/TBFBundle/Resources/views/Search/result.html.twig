@@ -14,25 +14,27 @@
         </thead>
         <tbody>
             {% for project in projects %}
-                <tr>
-                    <td><a href="">{{project.name}}</a></td>
-                    <td><a href="">{{project.description}}</a></td>
-                    <td>
-                        <ul>
-                        {% for member in project.members %}
-                            <li><a href="">{{member.firstname}}</a></li>
-                        {% endfor %} 
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                        {% for requiredSkill in project.skills %}
-                            <li><a href="">{{requiredSkill.name}}</a></li>
-                        {% endfor %} 
-                        </ul>
-                    </td>
-                    <td><a href="">{{project.state}}</a></td>
-                </tr>
+                {% if project.isAccepted == true %}
+                    <tr>
+                        <td><a href="{{path('tbf_projects_details', {'id': project.id})}}">{{project.name}}</a></td>
+                        <td><a href="{{path('tbf_projects_details', {'id': project.id})}}">{{project.description}}</a></td>
+                        <td>
+                            <ul>
+                            {% for member in project.members %}
+                                <li><a href="">{{member.firstname}}</a></li>
+                            {% endfor %} 
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                            {% for requiredSkill in project.skills %}
+                                <li>{{requiredSkill.name}}</li>
+                            {% endfor %} 
+                            </ul>
+                        </td>
+                        <td><a href="">{{ project.stateList(project.state) }}</a></td>
+                    </tr>
+                {% endif %}
             {% endfor %}
         </tbody>
     </table>
@@ -53,8 +55,8 @@
         <tbody>
             {% for skill in skills %}
                 <tr>
-                    <td><a href="">{{skill.name}}</a></td>
-                    <td><a href="">{{skill.description}}</a></td>
+                    <td>{{skill.name}}</td>
+                    <td>{{skill.description}}</td>
                     <td>
                         <ul>
                         {% for users in skill.users %}
@@ -86,20 +88,6 @@
                 <tr>
                     <td><a href="">{{user.firstname}}</a></td>
                     <td><a href="">{{user.lastname}}</a></td>
-                    <td>
-                        <ul>
-                        {% for skills in user.skills %}
-                            <li><a href="">{{skills.name}}</a></li>
-                        {% endfor %} 
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                        {% for projects in user.projects %}
-                            <li><a href="">{{projects.name}}</a></li>
-                        {% endfor %} 
-                        </ul>
-                    </td>
                 </tr>
             {% endfor %}
         </tbody>
