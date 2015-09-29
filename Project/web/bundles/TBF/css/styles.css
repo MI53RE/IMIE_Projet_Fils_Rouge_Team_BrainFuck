@@ -109,6 +109,9 @@ a.btn-cta-primary:hover,
 .navbar-default .navbar-nav>li>a {
   color: #479FC8;
 }
+.navbar-default .navbar-nav>li>a:focus {
+  color: #fff;
+}
 .navbar-default .navbar-toggle .icon-bar {
   background-color: #479FC8;
 }
