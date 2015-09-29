@@ -76,6 +76,7 @@
 
         {# ----------------------------------------------------------  #}
 
+
         {% if users %}
         <h2 class="result">Résultat d'utilisateur(s):</h2>
         <table class="table table-striped">
@@ -89,6 +90,7 @@
             <tbody>
                 {% for user in users %}
                     <tr>
+                        <td><a href="">{{user.username}}</a></td>
                         <td><a href="">{{user.firstname}}</a></td>
                         <td><a href="">{{user.lastname}}</a></td>
                     </tr>
@@ -103,4 +105,5 @@
         <h6 class="text-danger">Vous devez vous logger pour avoir accès à cette page !</h6>
         {% endif %}
     </div>
+
 {% endblock %}

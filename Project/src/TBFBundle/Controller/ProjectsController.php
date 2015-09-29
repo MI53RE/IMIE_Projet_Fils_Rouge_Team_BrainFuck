@@ -33,7 +33,8 @@ class ProjectsController extends Controller
         	array('project' => $project));
     }
     public function addAction(Request $req){
-        $project = new Projects();
+        $user = $this->getUser();
+        $project = new Projects($user);
         $form = $this->createForm(new ProjectsType(), $project, array(
             'action' => $this->generateUrl('tbf_projects_add')
         ));
@@ -49,11 +50,6 @@ class ProjectsController extends Controller
                 return $this->redirect($this->generateUrl('tbf_projects'));
             }
             catch (\Doctrine\DBAL\DBALException $e) {
-                if ($e === null){
-                    var_dump(' 48 niope!');
-                }else{
-                    var_dump(' 50 yep!');
-                }
                 $req->getSession()->getFlashBag()->add('danger', 'Erreur lors de l\'ajout :'
                     . PHP_EOL . $e->getMessage());
             }
