@@ -7,10 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Users_Skills
  *
- * @ORM\Table()
- * @ORM\Entity(repositoryClass="TBFBundle\Entity\Users_SkillsRepository")
+ * @ORM\Table("Users_Skills")
+ * @ORM\Entity(repositoryClass="TBFBundle\Entity\UsersSkillsRepository")
  */
-class Users_Skills
+class UsersSkills
 {
     /**
      * @var integer
@@ -24,14 +24,14 @@ class Users_Skills
     /**
      * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Users", inversedBy="skills")
+     * @ORM\ManyToOne(targetEntity="Users", inversedBy="skills", cascade={"persist"})
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $users;
 
     /**
      * @var integer
-     * @ORM\ManyToOne(targetEntity="Skills", inversedBy="users")
+     * @ORM\ManyToOne(targetEntity="Skills", inversedBy="users", cascade={"persist"})
      * @ORM\JoinColumn(name="skills_id", referencedColumnName="id")
      */
     private $skills;
@@ -42,6 +42,11 @@ class Users_Skills
      * @ORM\Column(name="level", type="integer")
      */
     private $level;
+
+    public function __construct()
+    {
+        $this->level = 0;
+    }
 
 
     /**
