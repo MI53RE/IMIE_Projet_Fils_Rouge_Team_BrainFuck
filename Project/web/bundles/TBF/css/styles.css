@@ -122,6 +122,9 @@ a.btn-cta-primary:hover,
 .table>thead>tr>th {
   color: #D2D9D8;
 }
+.table>tbody>tr>td{
+  padding-top: 15px;
+}
 .form-group>span {
   padding-top: 10px;
   padding-bottom: 10px;

@@ -12,6 +12,7 @@
             <li role="presentation">
                 <a href="{{ path('tbf_homepage') }}">Accueil</a>
             </li>
+            {% if app.user %}
             <li role="presentation">
                 <a href="{{ path('tbf_skills_index') }}">Compétences</a>
             </li>
@@ -21,8 +22,8 @@
             <li role="presentation">
                 <a href="{{ path('tbf_users_index') }}">Utilisateurs</a>
             </li>
-            <li role="presentation">
-            </li>
+            {% else %}
+            {% endif %}
         </ul>
     </div>
 </div>

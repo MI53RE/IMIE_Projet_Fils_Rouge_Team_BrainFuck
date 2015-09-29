@@ -88,20 +88,6 @@
                 <tr>
                     <td><a href="">{{user.firstname}}</a></td>
                     <td><a href="">{{user.lastname}}</a></td>
-                    <td>
-                        <ul>
-                        {% for skills in user.skills %}
-                            <li><a href="">{{skills.name}}</a></li>
-                        {% endfor %} 
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                        {% for projects in user.projects %}
-                            <li><a href="">{{projects.name}}</a></li>
-                        {% endfor %} 
-                        </ul>
-                    </td>
                 </tr>
             {% endfor %}
         </tbody>

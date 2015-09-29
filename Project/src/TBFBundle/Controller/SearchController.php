@@ -12,8 +12,9 @@ class SearchController extends Controller
     {
         $field = htmlentities($req->get('search'));
         
-        $result = $this->getDoctrine()->getManager();
-
+        $response = $this->getRepo($field, "TBFBundle:Users", "getUsersByName");
+        
+        //return new Response(var_dump($response));
         return $this->render("TBFBundle:Search:result.html.twig", array(
             "projects" => $this->getRepo($field, "TBFBundle:Projects", "getProjectByName"),
             "users" => $this->getRepo($field, "TBFBundle:Users", "getUsersByName"),
