@@ -2,15 +2,16 @@
 
 namespace TBFBundle\Entity;
 
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Users
  *
- * @ORM\Table()
+ * @ORM\Table(name="fos_user")
  * @ORM\Entity(repositoryClass="TBFBundle\Entity\UsersRepository")
  */
-class Users
+class Users extends BaseUser
 {
     /**
      * @var integer
@@ -19,19 +20,19 @@ class Users
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="firstname", type="string", length=255)
+     * @ORM\Column(name="firstname", type="string", length=255, nullable=true)
      */
     private $firstname;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="lastname", type="string", length=255)
+     * @ORM\Column(name="lastname", type="string", length=255, nullable=true)
      */
     private $lastname;
 
@@ -42,13 +43,14 @@ class Users
      *      joinColumns={@ORM\JoinColumn(name="users_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="projects_id", referencedColumnName="id")}
      *      )
+     * @ORM\JoinColumn(nullable=true)
      */
     private $projects;
     
-    //vincent
+
     /**
      *
-     * @ORM\ManyToMany(targetEntity="Skills", mappedBy="users")
+     * @ORM\OneToMany(targetEntity="UsersSkills", mappedBy="users", cascade={"persist"})
      */
     private $skills;
 
@@ -136,6 +138,7 @@ class Users
      */
     public function __construct()
     {
+        parent::__construct();
         $this->projects = new \Doctrine\Common\Collections\ArrayCollection();
         $this->skills = new \Doctrine\Common\Collections\ArrayCollection();
     }

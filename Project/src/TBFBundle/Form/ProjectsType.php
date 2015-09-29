@@ -16,15 +16,6 @@ class ProjectsType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('skills','entity', array(
-                'expanded' => true,
-                'multiple' => true,
-                'class' => 'TBFBundle:Skills',
-                'property' => 'name',
-                'query_builder' => function (\Doctrine\ORM\EntityRepository $repo) {
-                     $qb = $repo->createQueryBuilder('s');
-                     return $qb;
-                }))
             ->add('description')
             ->add('ajouter', 'submit')
         ;

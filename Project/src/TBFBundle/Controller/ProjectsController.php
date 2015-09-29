@@ -14,7 +14,13 @@ class ProjectsController extends Controller
     {
     	$result = $this->getDoctrine()->getManager();
     	$repo = $result->getRepository('TBFBundle:Projects');
-    	$projects = $repo->getProjects();
+    	$allProjects = $repo->getProjects();
+        $projects = [];
+        foreach ($allProjects as $project) {
+            if ($project->getIsAccepted()){
+                $projects[] = $project;
+            }
+        }
         return $this->render('TBFBundle:Projects:index.html.twig', 
         	array('projects' => $projects));
     }

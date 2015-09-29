@@ -85,4 +85,12 @@ tbf_users_remove:
               id: \d+
 tbf_search_result:
     path:     /result/{id}
-    defaults: { _controller: TBFFrontBundle:Search:result, id: 1 }
+    defaults: { _controller: TBFBundle:Search:result, id: 1 }
+
+tbf_registration:
+    path:     /registration
+    defaults: { _controller: FOSUserBundle:Registration:register }
+
+tbf_login:
+    path:     /login
+    defaults: { _controller: FOSUserBundle:Security:login }
