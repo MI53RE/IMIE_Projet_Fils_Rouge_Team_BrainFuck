@@ -46,6 +46,13 @@ class Users extends BaseUser
      * @ORM\JoinColumn(nullable=true)
      */
     private $projects;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="project", type="integer")
+     */
+    private $project = 0;
     
 
     /**
@@ -109,6 +116,28 @@ class Users extends BaseUser
     public function getLastname()
     {
         return $this->lastname;
+    }
+    /**
+     * Set project
+     *
+     * @param integer $project
+     * @return Users
+     */
+    public function setProject($project)
+    {
+        $this->project = $project;
+    
+        return $this;
+    }
+
+    /**
+     * Get project
+     *
+     * @return integer 
+     */
+    public function getProject()
+    {
+        return $this->project;
     }
 
     /**

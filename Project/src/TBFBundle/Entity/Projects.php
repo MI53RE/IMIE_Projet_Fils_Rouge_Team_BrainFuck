@@ -54,6 +54,13 @@ class Projects
     private $state;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="user", type="integer")
+     */
+    private $user = 0;
+
+    /**
      * @var boolean
      *
      * @ORM\Column(name="is_accepted", type="boolean")
@@ -82,7 +89,9 @@ class Projects
      */
     private $skills;
     
-    public function __construct(){
+    public function __construct($user){
+        $this->user = $user->getId();
+        $user->setProject($this->getId());
         $this->Skills = new ArrayCollection();
         $this->state = 0;
         $this->isAccepted = false;
