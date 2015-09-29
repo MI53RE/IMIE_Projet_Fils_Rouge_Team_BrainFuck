@@ -54,14 +54,21 @@ class Projects
     private $state;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="is_accepted", type="boolean")
+     */
+    private $isAccepted;
+
+    /**
      * @var array
      */
     private $stateList = [
-                            'En attente d\'approbation',
-                            'Actif',
-                            'Abandonné',
-                            'Terminé',
-                            'Refusé',
+                            'En attente d\'approbation',    // 0
+                            'Actif',                        // 1
+                            'Abandonné',                    // 2
+                            'Terminé',                      // 3
+                            'Refusé',                       // 4
                         ];
 
     /**
@@ -78,6 +85,7 @@ class Projects
     public function __construct(){
         $this->Skills = new ArrayCollection();
         $this->state = 0;
+        $this->isAccepted = false;
     }
 
     /**
@@ -227,5 +235,28 @@ class Projects
     public function getSkills()
     {
         return $this->skills;
+    }
+
+    /**
+     * Set isAccepted
+     *
+     * @param bool $bool
+     * @return Projects
+     */
+    public function setIsAccepted($bool)
+    {
+        $this->isAccepted = $bool;
+    
+        return $this;
+    }
+
+    /**
+     * Get isAccepted
+     *
+     * @return bool 
+     */
+    public function getIsAccepted()
+    {
+        return $this->isAccepted;
     }
 }
