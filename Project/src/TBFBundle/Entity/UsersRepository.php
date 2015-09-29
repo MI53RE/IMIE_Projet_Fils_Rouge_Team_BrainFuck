@@ -20,12 +20,13 @@ class UsersRepository extends EntityRepository
                            ->addSelect('skillid')
                            ->leftJoin('n.projects', 'projectid')
                            ->addSelect('projectid')
-                           ->where($qb->expr()->like('n.firstname', ':name'))
+                           //->where($qb->expr()->like('n.firstname', ':name'))
+                           ->where('n.firstname LIKE :name OR n.lastname LIKE :name')
                            ->setParameter('name', '%' . $name . '%')
                            ->getQuery()
                            ->getResult();
        } catch (\Doctrine\DBAL\DBALException $e) {
-           //echo $e->getTraceAsString();
+           echo $e->getTraceAsString();
        }
 
    }
