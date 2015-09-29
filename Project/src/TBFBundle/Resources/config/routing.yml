@@ -95,3 +95,8 @@ tbf_login:
     path:     /login
     defaults: { _controller: FOSUserBundle:Security:login }
 
+
+tbf_logout:
+    path:     /logout
+    defaults: { _controller: FOSUserBundle:Security:logout }
+
