@@ -36,16 +36,16 @@ class ProjectsRepository extends EntityRepository
         public function getProjectByName($name){
         try {
             $qb = $this->createQueryBuilder('p');
-            return $qb      //->leftJoin('p.members', 'usrid')
-                            //->addSelect('usrid')
-                            //->leftJoin('p.skills', 'skillid')
-                            //->addSelect('skillid')
+            return $qb      ->leftJoin('p.members', 'usrid')
+                            ->addSelect('usrid')
+                            ->leftJoin('p.skills', 'skillid')
+                            ->addSelect('skillid')
                             ->where($qb->expr()->like('p.name', ':name'))
                             ->setParameter('name', '%' . $name . '%')
                             ->getQuery()
                             ->getResult();
         } catch (\Doctrine\DBAL\DBALException $e) {
-            //echo $e->getTraceAsString();
+            echo $e->getTraceAsString();
         }
     }
 }
