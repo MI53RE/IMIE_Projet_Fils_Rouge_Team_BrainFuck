@@ -16,6 +16,7 @@ h6 {
   font-weight: 700;
   color: #778492;
 }
+
 a {
   color: #479FC8;
   -webkit-transition: all 0.4s ease-in-out;
@@ -143,6 +144,12 @@ label{
 .save{
   color: #00F719;
   padding-top: 10px;
+}
+.noresult{
+  color: red;
+}
+.result{
+  color: white;
 }
 /* For Firefox only */
 @-moz-document url-prefix() {

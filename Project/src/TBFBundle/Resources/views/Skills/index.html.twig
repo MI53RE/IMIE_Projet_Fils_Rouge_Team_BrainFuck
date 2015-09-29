@@ -2,6 +2,7 @@
 {% block title %}Skill{% endblock %}
 {% block body %}
 <div class="container skills">
+    {% if app.user %}
     <a class="btn btn-cta-primary input-file-bt pull-left" href="{{ path('tbf_skills_add') }}">Ajouter une competence</a>
     <table class="table table-striped">
         <thead>
@@ -21,5 +22,8 @@
         {% endfor %}
         </tbody>
     </table>
+    {% else %}
+    <h6 class="text-danger">Vous devez vous logger pour avoir accès à cette page !</h6>
+    {% endif %}
 </div>
 {% endblock %}

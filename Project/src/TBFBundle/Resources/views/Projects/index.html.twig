@@ -3,6 +3,7 @@
 {% block body %}
 
 <div class="container project">
+	{% if app.user %}
 
     <a href="{{ path('tbf_projects_add') }}">Créer un projet</a>
 
@@ -29,5 +30,8 @@
 			{% endfor %}
 		</table>
 	</div>
+	{% else %}
+	<h6 class="text-danger">Vous devez vous logger pour avoir accès à cette page !</h6>
+	{% endif %}
 </div>
 {% endblock %}

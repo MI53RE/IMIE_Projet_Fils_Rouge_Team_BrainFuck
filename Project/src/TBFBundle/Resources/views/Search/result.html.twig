@@ -1,98 +1,106 @@
 {% extends 'base.html.twig' %}
 {% block title %}Result{% endblock %}
 {% block body %}
-    <h1>Résultat de la recherche</h1>
-    {% if projects %}
-    <h2>Résultat de projet(s):</h2>
-    <table>
-        <thead>
-            <th>Nom</th>
-            <th>Description</th>
-            <th>Membre(s)</th>
-            <th>Compétance(s) requise(s)</th>
-            <th>Etat</th>
-        </thead>
-        <tbody>
-            {% for project in projects %}
-                {% if project.isAccepted == true %}
+    <div class="container user">
+        {% if app.user %}
+        <h1 class="result">Résultat de la recherche</h1>
+        {% if projects %}
+        <h2 class="result">Résultat de projet(s):</h2>
+        <table>
+            <thead>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Membre(s)</th>
+                <th>Compétance(s) requise(s)</th>
+                <th>Etat</th>
+            </thead>
+            <tbody>
+                {% for project in projects %}
+                    {% if project.isAccepted == true %}
+                        <tr>
+                            <td><a href="{{path('tbf_projects_details', {'id': project.id})}}">{{project.name}}</a></td>
+                            <td><a href="{{path('tbf_projects_details', {'id': project.id})}}">{{project.description}}</a></td>
+                            <td>
+                                <ul>
+                                {% for member in project.members %}
+                                    <li><a href="">{{member.firstname}}</a></li>
+                                {% endfor %} 
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                {% for requiredSkill in project.skills %}
+                                    <li>{{requiredSkill.name}}</li>
+                                {% endfor %} 
+                                </ul>
+                            </td>
+                            <td><a href="">{{ project.stateList(project.state) }}</a></td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <h5 class="noresult">Aucun résultat pour les projets</h5>
+        {% endif %}
+
+        {# ----------------------------------------------------------  #}
+
+        {% if skills %}
+        <h2 class="result">Résultat de compétence(s):</h2>
+        <table>
+            <thead>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Utilisateur(s) ayants cette(ces) compétence(s)</th>
+            </thead>
+            <tbody>
+                {% for skill in skills %}
                     <tr>
-                        <td><a href="{{path('tbf_projects_details', {'id': project.id})}}">{{project.name}}</a></td>
-                        <td><a href="{{path('tbf_projects_details', {'id': project.id})}}">{{project.description}}</a></td>
+                        <td>{{skill.name}}</td>
+                        <td>{{skill.description}}</td>
                         <td>
                             <ul>
-                            {% for member in project.members %}
-                                <li><a href="">{{member.firstname}}</a></li>
+                            {% for users in skill.users %}
+                                <li><a href="">{{users.firstname}}</a></li>
                             {% endfor %} 
                             </ul>
                         </td>
-                        <td>
-                            <ul>
-                            {% for requiredSkill in project.skills %}
-                                <li>{{requiredSkill.name}}</li>
-                            {% endfor %} 
-                            </ul>
-                        </td>
-                        <td><a href="">{{ project.stateList(project.state) }}</a></td>
                     </tr>
-                {% endif %}
-            {% endfor %}
-        </tbody>
-    </table>
-    {% else %}
-        <h2>Aucun résultat pour les projets</h2>
-    {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <h5 class="noresult">Aucun résultat pour les compétences</h5>
+        {% endif %}
 
-    {# ----------------------------------------------------------  #}
+        {# ----------------------------------------------------------  #}
 
-    {% if skills %}
-    <h2>Résultat de compétence(s):</h2>
-    <table>
-        <thead>
-            <th>Nom</th>
-            <th>Description</th>
-            <th>Utilisateur(s) ayants cette(ces) compétence(s)</th>
-        </thead>
-        <tbody>
-            {% for skill in skills %}
-                <tr>
-                    <td>{{skill.name}}</td>
-                    <td>{{skill.description}}</td>
-                    <td>
-                        <ul>
-                        {% for users in skill.users %}
-                            <li><a href="">{{users.firstname}}</a></li>
-                        {% endfor %} 
-                        </ul>
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    {% else %}
-        <h2>Aucun résultat pour les compétences</h2>
-    {% endif %}
-
-    {# ----------------------------------------------------------  #}
-
-    {% if users %}
-    <h2>Résultat d'utilisateur(s):</h2>
-    <table>
-        <thead>
-            <th>Prénom</th>
-            <th>Nom</th>
-            <th>Compétence(s)</th>
-            <th>projet(s) en cour(s)</th>
-        </thead>
-        <tbody>
-            {% for user in users %}
-                <tr>
-                    <td><a href="">{{user.firstname}}</a></td>
-                    <td><a href="">{{user.lastname}}</a></td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    {% else %}
-        <h2>Aucun résultat pour les utilisateurs</h2>
-    {% endif %}
+        {% if users %}
+        <h2 class="result">Résultat d'utilisateur(s):</h2>
+        <table class="table table-striped">
+        <div class="row">
+            <thead>
+                <th class="col-md-2 col-sm-12 col-xs-12">Prénom</th>
+                <th class="col-md-2 col-sm-12 col-xs-12">Nom</th>
+                <th class="col-md-3 col-sm-12 col-xs-12">Compétence(s)</th>
+                <th class="col-md-5 col-sm-12 col-xs-12">projet(s) en cour(s)</th>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td><a href="">{{user.firstname}}</a></td>
+                        <td><a href="">{{user.lastname}}</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            </div>
+        </table>
+        {% else %}
+            <h5 class="noresult">Aucun résultat pour les utilisateurs</h5>
+        {% endif %}
+        {% else %}
+        <h6 class="text-danger">Vous devez vous logger pour avoir accès à cette page !</h6>
+        {% endif %}
+    </div>
 {% endblock %}

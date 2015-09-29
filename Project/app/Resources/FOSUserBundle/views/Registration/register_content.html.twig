@@ -1,11 +1,15 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 <div class="container register">
+{% if is_granted('ROLE_ADMIN') %}
 <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="form-group">
     {{ form_widget(form) }}
     <div class="form-group">
         <button class="btn btn-primary btn-lg pull-middle" id="_submit" name="_submit" value="{{ 'Ajouter utilisateur'|trans }}">Ajouter l'utilisateur</button>
     </div>
 </form>
+{% else %}
+<h6 class="text-danger">Vous devez vous logger pour avoir accès à cette page !</h6>
+{% endif %}
 </div>
 
