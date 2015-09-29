@@ -18,8 +18,8 @@ class UsersRepository extends EntityRepository
            $qb = $this->createQueryBuilder('n');
            return $qb      ->leftJoin('n.projects', 'projectid')
                            ->addSelect('projectid')
-                           //->where($qb->expr()->like('n.firstname', ':name'))
-                           ->where('n.firstname LIKE :name OR n.lastname LIKE :name')
+                           //->where($qb->expr()->like('n.username', ':name'))
+                           ->where('n.firstname LIKE :name OR n.lastname LIKE :name OR n.username LIKE :name')
                            ->setParameter('name', '%' . $name . '%')
                            ->getQuery()
                            ->getResult();
