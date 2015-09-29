@@ -16,9 +16,7 @@ class UsersRepository extends EntityRepository
    public function getUsersByName($name){
        try {
            $qb = $this->createQueryBuilder('n');
-           return $qb      ->leftJoin('n.skills', 'skillid')
-                           ->addSelect('skillid')
-                           ->leftJoin('n.projects', 'projectid')
+           return $qb      ->leftJoin('n.projects', 'projectid')
                            ->addSelect('projectid')
                            ->where($qb->expr()->like('n.firstname', ':name'))
                            ->setParameter('name', '%' . $name . '%')
