@@ -4,18 +4,15 @@
 
 <div class="container project">
 	{% if app.user %}
+	<h1 class="result">Projet</h1>
+    <a class="btn btn-primary btn-lgskills pull-left" href="{{ path('tbf_projects_add') }}">Créer un projet</a>
 
-    <a href="{{ path('tbf_projects_add') }}">Créer un projet</a>
-
-	<h2>Project!</h2>
-	<div>
-		<h3>Projects</h3>
 		<table class="table table-striped">
 			<tr>
-				<th>Project's Name</th>
-				<th>Project's Owner</th>
-				<th>Project's Status</th>
-				<th>Members Count</th>
+				<th class="col-md-3 col-sm-12 col-xs-12">Nom du projet</th>
+				<th class="col-md-3 col-sm-12 col-xs-12">Propriétaire du projet</th>
+				<th class="col-md-3 col-sm-12 col-xs-12">Statut du projet</th>
+				<th class="col-md-3 col-sm-12 col-xs-12">Nombre de participants</th>
 			</tr>
 			{% for project in projects if projects is defined  %}
 			<tr>

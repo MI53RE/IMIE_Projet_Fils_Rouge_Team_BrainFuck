@@ -15,8 +15,8 @@ class ProjectsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('description')            
+            ->add('name', 'text', array('label' => 'Nom', 'attr'=> array('class' => 'form-control input-lg' )))
+            ->add('description', 'text', array('label' => 'Description', 'attr'=> array('class' => 'form-control input-lg' )))           
             ->add('skills','entity', array(
                 'expanded' => true,
                 'multiple' => true,
@@ -26,7 +26,7 @@ class ProjectsType extends AbstractType
                      $qb = $repo->createQueryBuilder('s');
                      return $qb;
                 }))
-            ->add('ajouter', 'submit')
+            ->add('ajouter', 'submit', array('attr'=> array('class' => 'btn btn-primary btn-lgskills pull-left' )))
         ;
     }
     

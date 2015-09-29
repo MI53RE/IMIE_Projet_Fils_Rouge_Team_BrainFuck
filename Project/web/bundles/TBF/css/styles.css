@@ -141,9 +141,17 @@ a.btn-cta-primary:hover,
 label{
   color: #000000;
 }
+.btn-lgskills{
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
 .save{
   color: #00F719;
   padding-top: 10px;
+}
+.error{
+  color: red;
+  padding-top: 6px;
 }
 .noresult{
   color: red;

@@ -4,14 +4,14 @@
 
 {% block fos_user_content %}
 {% if error %}
-    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    <div class="container error"><p class="error">{{ 'Identifiant ou mot de passe invalide'|trans(error.messageData, 'security') }}</p></div>
 {% endif %}
 
 <div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
           	<div class="modal-header">
-            	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            	<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><a href="{{path('tbf_homepage')}}">×</a></button>
             	<h1 class="text-center">Connexion</h1>
           	</div>
               	<form class="form col-md-12 center-block" action="{{path("fos_user_security_check")}}" method="post"> 

@@ -15,9 +15,9 @@ class SkillsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('description')
-            ->add('ajouter', 'submit')
+            ->add('name', 'text', array('label' => 'Nom', 'attr'=> array('class' => 'form-control input-lg' )))
+            ->add('description', 'text', array('label' => 'Description', 'attr'=> array('class' => 'form-control input-lg' )))
+            ->add('ajouter', 'submit', array('attr'=> array('class' => 'btn btn-primary btn-lgskills pull-left' )))
         ;
     }
     
