@@ -38,7 +38,7 @@ class SkillsRepository extends EntityRepository
                             ->getQuery()
                             ->getResult();
         } catch (\Doctrine\DBAL\DBALException $e) {
-            //echo $e->getTraceAsString();
+            echo $e->getTraceAsString();
         }
     }
 
